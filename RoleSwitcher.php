@@ -19,7 +19,7 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 	// Always hide module configure button.
 	function redcap_module_configure_button_display()
 	{
-		return null;
+		return $this->getProjectId() === null ? true : null;
 	}
 
 	// If the REDCap UI Tweaker module is enabled, instruct the external modules simplified view to
@@ -95,7 +95,7 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 		}
 		$listRoleIDs = array_keys( $listUserRoles[ $username ] );
 		$queryRoleNames = $this->query( 'SELECT role_id, role_name FROM redcap_user_roles ' .
-		                               'WHERE project_id = ?', [ $this->getProjectID() ] );
+		                               'WHERE project_id = ?', [ $this->getProjectId() ] );
 		$listRoleNames = [];
 		while ( $infoRoleName = $queryRoleNames->fetch_assoc() )
 		{
@@ -124,7 +124,7 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 		{
 			return;
 		}
-		$projectID = $this->getProjectID();
+		$projectID = $this->getProjectId();
 		$this->query( 'DELETE FROM redcap_data_access_groups_users WHERE project_id = ? AND ' .
 		              'username = ?', [ $projectID, $username ] );
 		foreach ( $listUserRoles[ $username ][ $roleID ] as $dagID )
