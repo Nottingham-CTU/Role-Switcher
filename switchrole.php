@@ -44,7 +44,7 @@ foreach ( $listUserRoles as $roleID => $roleName )
 ?>
  <form method="post">
   <p>
-   <input type="hidden" name="set-role" value="<?php echo $roleID; ?>">
+   <input type="hidden" name="set-role" value="<?php echo $module->escape( $roleID ); ?>">
    <input type="submit" value="<?php echo $module->escape( $roleName ); ?>"<?php echo $attrDis; ?>>
   </p>
  </form>
