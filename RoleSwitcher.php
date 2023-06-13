@@ -112,4 +112,37 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 		return $listRoles;
 	}
 
+	// Set the user's DAGs following a role change.
+	function setUserDAGs( $username, $roleID )
+	{
+		$listUsers = [];
+		$listUserRoles = $this->getProjectSetting( 'user-roles' );
+		$listUserRoles = ( $listUserRoles == '' ? [] : json_decode( $listUserRoles, true ) );
+		if ( ! isset( $listUserRoles[ $username ] ) ||
+		     ! isset( $listUserRoles[ $username ][ $roleID ] ) ||
+		     $listUserRoles[ $username ][ $roleID ] === true )
+		{
+			return;
+		}
+		$projectID = $this->getProjectID();
+		$this->query( 'DELETE FROM redcap_data_access_groups_users WHERE project_id = ? AND ' .
+		              'username = ?', [ $projectID, $username ] );
+		foreach ( $listUserRoles[ $username ][ $roleID ] as $dagID )
+		{
+			$dagID = ( $dagID == 'null' ) ? null : intval( $dagID );
+			$this->query( 'INSERT INTO redcap_data_access_groups_users (project_id, group_id, ' .
+			              'username) VALUES (?, ?, ?)', [ $projectID, $dagID, $username ] );
+		}
+		$userDAG = $this->query( 'SELECT group_id g FROM redcap_user_rights WHERE project_id = ? ' .
+		                         'AND username = ?', [ $projectID, $username ] )->fetch_assoc();
+		$userDAG = ( $userDAG === null || $userDAG['g'] === null ) ? 'null' : $userDAG['g'];
+		if ( ! in_array( $userDAG, $listUserRoles[ $username ][ $roleID ] ) )
+		{
+			$dagID = reset( $listUserRoles[ $username ][ $roleID ] );
+			$dagID = ( $dagID == 'null' ) ? null : intval( $dagID );
+			$this->query( 'UPDATE redcap_user_rights SET group_id = ? WHERE project_id = ? AND ' .
+			              'username = ?', [ $dagID, $projectID, $username ] );
+		}
+	}
+
 }

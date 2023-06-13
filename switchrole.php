@@ -16,6 +16,7 @@ if ( isset( $_POST['set-role'] ) )
 	if ( isset( $listUserRoles[ $_POST['set-role'] ] ) )
 	{
 		$module->getProject()->setRoleForUser( $listUserRoles[ $_POST['set-role'] ], USERID );
+		$module->setUserDAGs( USERID, $_POST['set-role'] );
 	}
 	header( 'Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 	exit;
