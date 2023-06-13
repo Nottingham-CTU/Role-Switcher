@@ -118,6 +118,9 @@ foreach ( $listUsers as $infoUser )
  </tbody>
 </table>
 <div id="dags-dialog" style="display:none">
+ <p class="roleswitcherdagmsg">
+  If assigning DAGs, ensure that each role has at least one DAG (or no assignment) selected.
+ </p>
  <table class="roleswitchertbl">
   <thead>
    <tr>
@@ -183,6 +186,10 @@ $(function()
       vSet = true
     }
     vCheckbox.style.opacity = 0.4
+    if ( vSet && $('.roleswitcherdags[data-user="' + vUsername + '"]').text() != 'Standard' )
+    {
+      $('.roleswitcherdags[data-user="' + vUsername + '"]').click()
+    }
     $.post( '<?php echo $_SERVER['REQUEST_URI']; ?>',
             { saveroles : JSON.stringify( vUserRoles ) }, function()
     {
@@ -224,7 +231,8 @@ $(function()
     $('#dags-dialog tbody').html( vTblData )
     $('#dags-dialog').dialog(
     {
-      modal : true, title : 'DAG assignments: ' + vUsername,
+      modal : true, title : 'DAG assignments: ' + vUsername, width : '80%',
+      buttons : [ { text : 'Close', click : function() { $( this ).dialog('close') } } ],
       beforeClose : function()
       {
         var vDAGsStatus = ''
@@ -261,6 +269,8 @@ $(function()
           }
           else
           {
+            $('.roleswitcherdagmsg').css('font-weight','bold')
+            setTimeout( function() { $('.roleswitcherdagmsg').css('font-weight','normal') }, 2000 )
             return false
           }
         }
