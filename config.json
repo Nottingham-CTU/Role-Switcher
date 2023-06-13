@@ -1,7 +1,7 @@
 {
 	"name" : "Role Switcher",
 	"namespace" : "Nottingham\\RoleSwitcher",
-	"description" : "Assign users to multiple roles that they can switch themselves between.",
+	"description" : "Allow users to switch themselves between roles.<br>Supports per-role DAG assignments for each user.",
 	"authors": [
 		{
 			"name": "Richard Dooley",
@@ -21,6 +21,18 @@
 			{ "name" : "User Role Assignments", "icon" : "fas fa-user-gear", "url" : "configure.php" }
 		]
 	},
+	"system-settings" : [
+		{
+			"key" : "fmt1",
+			"name" : "<script type=\"text/javascript\">$('[name=config-require-user-permission] option').first().text('Require User Rights privilege')</script>",
+			"type" : "descriptive"
+		},
+		{
+			"key" : "fmt2",
+			"name" : "<script type=\"text/javascript\">$('[field=fmt1],[field=fmt2]').css('display','none')</script>",
+			"type" : "descriptive"
+		}
+	],
 	"project-settings" : [
 		{
 			"key" : "user-roles",
