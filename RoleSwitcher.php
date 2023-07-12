@@ -125,6 +125,7 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 			return;
 		}
 		$projectID = $this->getProjectId();
+		$this->query( 'START TRANSACTION', [] );
 		$this->query( 'DELETE FROM redcap_data_access_groups_users WHERE project_id = ? AND ' .
 		              'username = ?', [ $projectID, $username ] );
 		foreach ( $listUserRoles[ $username ][ $roleID ] as $dagID )
@@ -143,6 +144,7 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 			$this->query( 'UPDATE redcap_user_rights SET group_id = ? WHERE project_id = ? AND ' .
 			              'username = ?', [ $dagID, $projectID, $username ] );
 		}
+		$this->query( 'COMMIT', [] );
 	}
 
 }
