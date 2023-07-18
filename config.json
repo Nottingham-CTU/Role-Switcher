@@ -1,0 +1,44 @@
+{
+	"name" : "Role Switcher",
+	"namespace" : "Nottingham\\RoleSwitcher",
+	"description" : "Allow users to switch themselves between roles.<br>Supports per-role DAG assignments for each user.",
+	"authors": [
+		{
+			"name": "Richard Dooley",
+			"email": "richard.dooley@nottingham.ac.uk",
+			"institution": "University of Nottingham"
+		}
+	],
+	"framework-version" : 12,
+	"compatibility" : {
+		"redcap-version-min" : "13.1.28",
+		"php-version-min" : "8.0.0",
+		"php-version-max" : "8.99.99"
+	},
+	"links" : {
+		"project" : [
+			{ "name" : "Switch Role", "icon" : "fas fa-user-tag", "url" : "switchrole.php" },
+			{ "name" : "User Role Assignments", "icon" : "fas fa-user-gear", "url" : "configure.php" }
+		]
+	},
+	"system-settings" : [
+		{
+			"key" : "fmt1",
+			"name" : "<script type=\"text/javascript\">$('[name=config-require-user-permission] option').first().text('Require User Rights privilege')</script>",
+			"type" : "descriptive"
+		},
+		{
+			"key" : "fmt2",
+			"name" : "<script type=\"text/javascript\">$('[field=fmt1],[field=fmt2]').css('display','none')</script>",
+			"type" : "descriptive"
+		}
+	],
+	"project-settings" : [
+		{
+			"key" : "user-roles",
+			"name" : "User roles mapping",
+			"type" : "textarea",
+			"super-users-only" : true
+		}
+	]
+}
