@@ -152,8 +152,9 @@ $('head').append('<style type="text/css">.roleswitchertbl{border-collapse:separa
                  'left:0px;z-index:99}</style>')
 $(function()
 {
+  var vListRoleIDs = JSON.parse('<?php echo json_encode( $module->escape( array_keys( $listRoles ) ) ); ?>')
   var vListRoles = JSON.parse('<?php echo json_encode( $module->escape( $listRoles ) ); ?>')
-  var vListDAGs = JSON.parse('<?php echo json_encode( $module->escape( $listDAGs ) ); ?>')
+  var vListDAGs = JSON.parse('<?php echo json_encode( $module->escape( array_keys( $listDAGs ) ) ); ?>')
   var vUserRoles = $('<div></div>').html('<?php echo $module->escape( $userRolesData ); ?>').text()
   vUserRoles = JSON.parse( vUserRoles )
   $('.roleswitcheropt').click(function()
@@ -207,8 +208,12 @@ $(function()
       return false
     }
     var vTblData = ''
-    Object.keys( vUserRoles[ vUsername ] ).forEach( function( vRoleID )
+    vListRoleIDs.forEach( function( vRoleID )
     {
+      if ( ! ( vRoleID in vUserRoles[ vUsername ] ) )
+      {
+        return
+      }
       var vRoleDAGs = vUserRoles[ vUsername ][ vRoleID ]
       vTblData += '<tr><td style="white-space:nowrap">' + vListRoles[ vRoleID ] + '</td>'
       vTblData += '<td><input type="checkbox"'
@@ -217,10 +222,10 @@ $(function()
         vTblData += ' checked'
       }
       vTblData += ' data-role="' + vRoleID + '" data-dag="null"></td>'
-      Object.keys( vListDAGs ).forEach( function( vDAGID )
+      vListDAGs.forEach( function( vDAGID )
       {
         vTblData += '<td><input type="checkbox"'
-        if ( Array.isArray( vRoleDAGs ) && vRoleDAGs.includes( vDAGID ) )
+        if ( Array.isArray( vRoleDAGs ) && vRoleDAGs.includes( '' + vDAGID ) )
         {
           vTblData += ' checked'
         }
