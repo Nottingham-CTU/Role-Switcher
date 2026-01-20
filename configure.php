@@ -44,6 +44,10 @@ if ( $userRolesData == '' )
 $listUserRoles = json_decode( $userRolesData, true );
 
 $listDAGs = \REDCap::getGroupNames( false );
+if ( ! is_array( $listDAGs ) )
+{
+	$listDAGs = [];
+}
 
 
 // Display the project header
