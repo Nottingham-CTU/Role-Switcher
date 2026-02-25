@@ -2,6 +2,7 @@
 	"name" : "Role Switcher",
 	"namespace" : "Nottingham\\RoleSwitcher",
 	"description" : "Allow users to switch themselves between roles.<br>Supports per-role DAG assignments for each user.",
+	"enable-every-page-hooks-on-system-pages" : true,
 	"authors": [
 		{
 			"name": "Richard Dooley",
@@ -31,6 +32,12 @@
 			"key" : "fmt2",
 			"name" : "<script type=\"text/javascript\">$('[field=fmt1],[field=fmt2]').css('display','none')</script>",
 			"type" : "descriptive"
+		},
+		{
+			"key" : "deactivated-admins",
+			"name" : "Deactivated admins",
+			"type" : "textarea",
+			"hidden" : true
 		}
 	],
 	"project-settings" : [

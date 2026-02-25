@@ -26,6 +26,30 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 	// exclude the role assignments.
 	function redcap_every_page_before_render( $project_id )
 	{
+
+		// IMPORTANT: This function runs in all contexts, when adding code ensure that it will only
+		// run in the desired contexts (system or project).
+
+		// If the set administrative privileges page...
+		if ( substr( PAGE_FULL, strlen( APP_PATH_WEBROOT ), 28 ) == 'ControlCenter/superusers.php' )
+		{
+			$listDeactivatedAdmins =
+				json_decode( $this->getSystemSetting('deactivated-admins') ?? '[]', true );
+			if ( ! empty( $listDeactivatedAdmins ) )
+			{
+				// Re-enable the deactivated admins before showing the page.
+				foreach ( $listDeactivatedAdmins as $deactivatedAdmin )
+				{
+					$this->query( 'UPDATE redcap_user_information SET super_user = 1 ' .
+					              'WHERE username = ?', [ $deactivatedAdmin ] );
+				}
+				$this->removeSystemSetting('deactivated-admins');
+				header( 'Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+				$this->exitAfterHook();
+				return;
+			}
+		}
+
 		if ( !$project_id || ! $this->isModuleEnabled('redcap_ui_tweaker') )
 		{
 			return;
