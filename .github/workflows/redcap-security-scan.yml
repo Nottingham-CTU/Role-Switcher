@@ -13,7 +13,7 @@ jobs:
     name: Jobs
     uses: Nottingham-CTU/Workflows/.github/workflows/redcap-security-scan.yml@main
     with:
-      #RC_SYSTEM_HOOKS: true  # Uncomment if the module is using system hooks.
+      RC_SYSTEM_HOOKS: true  # Uncomment if the module is using system hooks.
       RC_COMMUNITY_USERNAME: ${{ vars.RC_COMMUNITY_USERNAME }}
     secrets:
       RC_COMMUNITY_PASSWORD: ${{ secrets.RC_COMMUNITY_PASSWORD }}
