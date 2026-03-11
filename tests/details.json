@@ -1,0 +1,27 @@
+[
+	{
+		"file" : "test_01-Assign_roles_to_users.py",
+		"name" : "Assign roles to users",
+		"expected" : "The assigned roles are saved"
+	},
+	{
+		"file" : "test_02-Users_can_switch_roles",
+		"name" : "Users can switch between their roles",
+		"expected" : "Selecting a different role correctly switches the assigned role"
+	},
+	{
+		"file" : "test_03-Assign_custom_DAGs.py",
+		"name" : "Users can be assigned different DAGs for each role",
+		"expected" : "Custom DAG assignments are saved, or revert to standard role assignments if custom DAGs are removed"
+	},
+	{
+		"file" : "test_04-Custom_DAGs_enacted.py",
+		"name" : "Custom DAG assignments are enacted when the user changes role",
+		"expected" : "After changing role, the user has the DAGs for that role"
+	},
+	{
+		"file" : "test_05-Deactivate_admin_privs.py",
+		"name" : "System administrators can deactivate/reactivate their full access privilege",
+		"expected" : "Administrators can temporarily deactivate their full access, so the roles work as intended. This is not available to standard users. All deactivated admin rights are restored if an admin goes to configure admins in the control centre."
+	}
+]

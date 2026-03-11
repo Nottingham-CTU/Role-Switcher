@@ -1,0 +1,1694 @@
+{
+  "id": "a95e4f45-1fa3-4ad3-a33c-ba8fff1082da",
+  "version": "3.0",
+  "name": "Role Switcher REDCap Module Functionality Testing",
+  "url": "http://www.google.com",
+  "urls": [
+    "http://www.google.com"
+  ],
+  "plugins": [],
+  "suites": [
+    {
+      "id": "1731fcba-2d20-401b-b705-2de26468085d",
+      "name": "New Suite",
+      "parallel": false,
+      "persistSession": false,
+      "tests": [
+        "6e97873e-622e-48f8-95f7-0ccdb7dadc13"
+      ],
+      "timeout": 30000
+    }
+  ],
+  "tests": [
+    {
+      "id": "6e97873e-622e-48f8-95f7-0ccdb7dadc13",
+      "name": "init",
+      "commands": [
+        {
+          "id": "2ac5284d-97c5-436f-8b33-de80fe794c32",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "1d5338be-7434-43c6-b70f-55ae864d5284"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//*[@id=\"table-proj_table\"][contains(.,'Role Switcher Test')]",
+          "value": "",
+          "id": "f5f2ae51-9640-456a-a939-fb171510a285"
+        },
+        {
+          "command": "click",
+          "target": "linkText=New Project",
+          "value": "",
+          "id": "97712a1f-ef0c-4e09-b19f-d6aefcec6712"
+        },
+        {
+          "command": "type",
+          "target": "id=app_title",
+          "value": "Role Switcher Test",
+          "id": "09433ff0-d236-49bf-8ff7-f4dc2ff9fb55"
+        },
+        {
+          "command": "select",
+          "target": "id=purpose",
+          "value": "value=0",
+          "id": "de133e0d-6dc3-421f-a77d-67dd90584e60"
+        },
+        {
+          "command": "click",
+          "target": "id=project_template_radio1",
+          "value": "",
+          "id": "60998af8-8182-4a3f-aeb2-7582d39d9f5d"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//table[@id='table-template_projects_list']//tr[contains(.,'Classic Database')]//input",
+          "value": "",
+          "id": "1d1ddf26-0475-4c33-8d49-fa29652ee9eb"
+        },
+        {
+          "command": "click",
+          "target": "css=.btn-primaryrc",
+          "value": "",
+          "id": "9f4f143a-91a0-41ec-9b73-1f1c02cf1924"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"UserRights/index.php\"]",
+          "value": "",
+          "id": "fa1b8476-e718-4553-9edf-71de85956ef0"
+        },
+        {
+          "command": "type",
+          "target": "id=new_rolename",
+          "value": "Role1",
+          "id": "652647cd-3576-4cbc-a4bd-36b13ad270f8"
+        },
+        {
+          "command": "click",
+          "target": "id=createRoleBtn",
+          "value": "",
+          "id": "a9e84e8a-104c-4c20-aa37-ceb5ef6ac1c5"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[name=\"design\"]",
+          "value": "",
+          "id": "c2089f15-df81-427d-8465-30bb959377b1"
+        },
+        {
+          "command": "check",
+          "target": "css=input[name=\"user_rights\"][value=\"1\"]",
+          "value": "",
+          "id": "2e869e3b-1f21-4352-9953-9a4afec277f6"
+        },
+        {
+          "command": "check",
+          "target": "css=input[name=\"data_access_groups\"]",
+          "value": "",
+          "id": "2b7bae52-298c-481b-a71f-48b898ee04fa"
+        },
+        {
+          "command": "check",
+          "target": "css=input[name=\"alerts\"]",
+          "value": "",
+          "id": "626ce0e6-dcba-44e6-a571-b85bbc0578c7"
+        },
+        {
+          "command": "click",
+          "target": "css=[aria-describedby=\"editUserPopup\"] button[style*=\"bold\"]",
+          "value": "",
+          "id": "53bc1a60-12f1-40cf-a2ce-3624c0514547"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@id='table-user_rights_roles_table']//tr[contains(.,'Role1')]",
+          "value": "30000",
+          "id": "b0f681fc-0cba-43fe-b726-cda2f2887b8f"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//table[@id='table-user_rights_roles_table']//a[contains(.,'admin')]",
+          "value": "",
+          "id": "6486037f-5584-409e-a7e7-b94da782eb60"
+        },
+        {
+          "command": "click",
+          "target": "id=assignUserBtn2",
+          "value": "",
+          "id": "b861e993-fd20-4c07-9d98-730167578404"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "93488e06-bf96-4fef-8834-43027d2f9d0f"
+        },
+        {
+          "command": "select",
+          "target": "id=user_role",
+          "value": "label=Role1",
+          "id": "1a05ae03-1bff-4ce5-b7e9-6459e0d13981"
+        },
+        {
+          "command": "click",
+          "target": "id=assignDagRoleBtn",
+          "value": "",
+          "id": "cc3b3148-49d5-47fc-a6e7-c081634a8837"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@id='table-user_rights_roles_table']//tr[contains(.,'Role1')][contains(.,'admin')]",
+          "value": "30000",
+          "id": "375edad8-9113-49b9-8669-51ecbaf440cf"
+        },
+        {
+          "command": "type",
+          "target": "id=new_rolename",
+          "value": "Role2",
+          "id": "07f44cd9-d97f-4dd0-9474-3333fbac7aa8"
+        },
+        {
+          "command": "click",
+          "target": "id=createRoleBtn",
+          "value": "",
+          "id": "0e8258d5-fc6d-4bb4-ad2d-0ec0a5f4b157"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[name=\"design\"]",
+          "value": "",
+          "id": "ae3f14f0-a4a7-4def-a957-3fd33b2fcc7a"
+        },
+        {
+          "command": "check",
+          "target": "css=input[name=\"user_rights\"][value=\"1\"]",
+          "value": "",
+          "id": "75526993-7659-4170-8d3d-7efd19e1dd63"
+        },
+        {
+          "command": "check",
+          "target": "css=input[name=\"data_access_groups\"]",
+          "value": "",
+          "id": "744cd10b-1d57-4f7d-88d2-ac2a434f8468"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[name=\"alerts\"]",
+          "value": "",
+          "id": "6d7506dc-0609-47a9-b401-c4e2e7cee211"
+        },
+        {
+          "command": "click",
+          "target": "css=[aria-describedby=\"editUserPopup\"] button[style*=\"bold\"]",
+          "value": "",
+          "id": "b9e2c199-f84d-43de-9dac-1f6eac330d6b"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@id='table-user_rights_roles_table']//tr[contains(.,'Role2')]",
+          "value": "30000",
+          "id": "6d205cc7-c4f6-49c9-97a7-a0a35388fc4a"
+        },
+        {
+          "command": "type",
+          "target": "id=new_username_assign",
+          "value": "user1",
+          "id": "c18faf42-3907-4571-929a-1827373d74e5"
+        },
+        {
+          "command": "click",
+          "target": "id=assignUserBtn",
+          "value": "",
+          "id": "81972d0c-c481-45b2-8901-8c8e620b5f31"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "dd0a9a09-c3a1-4169-876d-bebb51b36642"
+        },
+        {
+          "command": "uncheck",
+          "target": "id=notify_email_role",
+          "value": "",
+          "id": "c2b70490-4196-4481-b885-529048b200a0"
+        },
+        {
+          "command": "select",
+          "target": "id=user_role",
+          "value": "label=Role1",
+          "id": "0bac0464-54b4-4014-9d8e-3f9dfca27fcc"
+        },
+        {
+          "command": "click",
+          "target": "id=assignDagRoleBtn",
+          "value": "",
+          "id": "6f32fac3-6372-488b-a7c4-0e20d52db559"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@id='table-user_rights_roles_table']//tr[contains(.,'Role1')][contains(.,'user1')]",
+          "value": "30000",
+          "id": "5513fe46-0a02-4de4-b2be-2fabd41d3b42"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"route=DataAccessGroupsController:index\"]",
+          "value": "",
+          "id": "7bb7a198-df0c-4f8d-874f-272397b91c9b"
+        },
+        {
+          "command": "type",
+          "target": "id=new_group",
+          "value": "DAG1",
+          "id": "e56a1165-9e89-46de-8a66-b610ce973a01"
+        },
+        {
+          "command": "click",
+          "target": "id=new_group_button",
+          "value": "",
+          "id": "77b469a5-c4b1-4f64-a23a-77a1fa897cdd"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@id='table-dags_table']//tr[contains(.,'DAG1')]",
+          "value": "30000",
+          "id": "067fdf0d-e3a3-4198-86e7-084743e0a89d"
+        },
+        {
+          "command": "type",
+          "target": "id=new_group",
+          "value": "DAG2",
+          "id": "1290024f-ba3d-4e06-954b-8f5a2a09d4af"
+        },
+        {
+          "command": "click",
+          "target": "id=new_group_button",
+          "value": "",
+          "id": "e1bb7592-3e61-4d95-94b0-5eac29765716"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@id='table-dags_table']//tr[contains(.,'DAG2')]",
+          "value": "30000",
+          "id": "658e36e9-ad46-429b-908b-7a6170ef3823"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ExternalModules/manager/project.php\"]",
+          "value": "",
+          "id": "dc8cf55a-0e73-42e2-a8be-c83e1f076974"
+        },
+        {
+          "command": "click",
+          "target": "id=external-modules-enable-modules-button",
+          "value": "",
+          "id": "8fed6a3a-ba62-4789-9136-cfc9499da6b6"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=tr[data-module=\"role_switcher\"] button.enable-button",
+          "value": "30000",
+          "id": "de1e0145-5fb3-4a98-97ba-6c9dcb522bf1"
+        },
+        {
+          "command": "click",
+          "target": "css=tr[data-module=\"role_switcher\"] button.enable-button",
+          "value": "",
+          "id": "e0e55657-3362-45ce-b66a-97bac4787285"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=tr[data-module=\"role_switcher\"] button.external-modules-disable-button",
+          "value": "30000",
+          "id": "28043421-d070-483b-ad5f-3d1c5e36ade0"
+        }
+      ]
+    },
+    {
+      "id": "d561d323-a62e-40c5-a94b-0bad520b2165",
+      "name": "t01 - Assign roles to users",
+      "commands": [
+        {
+          "id": "fecd99c6-5785-4246-9739-2acab354bff1",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "04c7d346-5fe8-433e-8862-a6f6aaa7b600"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id=\"table-proj_table\"][contains(.,'Role Switcher Test')]",
+          "value": "",
+          "id": "073c2a31-0513-4cbd-8304-46598ebbe9b7"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Role Switcher Test",
+          "value": "",
+          "id": "99ddf2f2-866b-46b8-946b-23e2bcd2effe"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "cf75bb7c-9097-433d-b60f-4c4e993f58fc"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "8c09728c-6d80-4432-8157-eede27f35b80"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "78222b83-b3eb-446f-b3e0-25d4d0084637"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "b67b401c-a464-4a42-9300-9b2ee43dd12b"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "775c98d8-be43-42ab-901c-de241031819a"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "8a428c47-ef33-48fb-ab6e-ee4625d67b14"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "639474ce-7a15-44c4-9d17-d843ec3542ec"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "f4289ea1-3f45-416a-9ca3-4b144d99f8e6"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "1970ed6c-37f1-43d7-9d8d-40a6a4327dcf"
+        },
+        {
+          "command": "runScript",
+          "target": "//SAVEDESC:Reload page.",
+          "value": "",
+          "id": "7e5ab56c-3520-47c5-883f-823622ee63d5"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location.reload()",
+          "value": "",
+          "id": "b8275134-5bc4-4be2-aaca-0b16bc9b2feb"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "73647212-1eb7-4022-a1ef-e0d6ab1ac1e1"
+        },
+        {
+          "command": "assertChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "9eabee9b-405a-44e1-988d-8abc9913ba8d"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "347525cf-1d76-43ae-bd4b-e6b6dd0304d2"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "ece5a7a0-cdf6-4d3e-9db2-feb9db0c9ba0"
+        },
+        {
+          "command": "assertChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "c2637b3a-d9db-461e-957d-9409e574821c"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "a7345bfa-744d-41a0-a89d-592088707ffe"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "d0233e07-874f-49ef-8852-47fae3259c4a"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "b1af856e-a1e4-4fa3-8861-3efa31c6ee63"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "5a774f86-9f5e-45fa-9385-13329ff1a7ad"
+        },
+        {
+          "command": "runScript",
+          "target": "//SAVEDESC:Reload page.",
+          "value": "",
+          "id": "5aa1205a-649f-4fca-ab70-334a89441511"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location.reload()",
+          "value": "",
+          "id": "427f25ab-4932-486e-a75a-39b75332ca07"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "d5a6c579-23e3-4d10-92f4-2c80bfa95aeb"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "090206c0-a6e6-4205-b6b5-daa5bbd760d2"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "335bc81d-3edf-4522-9078-c3eca024bf86"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "16a9aeeb-39bb-4635-835a-97e6575f5bc0"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "ffe107f0-8828-4fb3-bc55-7111b48ea6a8"
+        }
+      ]
+    },
+    {
+      "id": "b28f264a-b5df-4d70-8e30-80e5dd4cd349",
+      "name": "t02 - Users can switch roles",
+      "commands": [
+        {
+          "id": "5829b5d3-716c-4038-9ed8-2cbaa42f738d",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "33f98167-d71c-45f8-b021-abac769e5108"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id=\"table-proj_table\"][contains(.,'Role Switcher Test')]",
+          "value": "",
+          "id": "3bf87daa-dd92-47f8-ac11-acdbc9499875"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Role Switcher Test",
+          "value": "",
+          "id": "c1584a40-6a0b-4d04-b95a-3e346a84a19e"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "7c82ccdf-b113-4edd-886c-a269fa3b7f47"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "5347a850-3896-4132-ab36-e50a67487edb"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "09a79592-006a-46e8-ac7e-ed361fa000a1"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "470e37d9-dcf7-4e23-b53b-66d485d6260d"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "5b5f796f-53b8-484e-810c-bdb549c04097"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "dbfac595-5c2a-4a88-916b-54e82a8dc944"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "4676cf0b-5c9f-4e4b-b601-933695437cf5"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "f30635b2-25c0-4afb-9f37-fd98c822b329"
+        },
+        {
+          "command": "store",
+          "target": "user1",
+          "value": "username",
+          "id": "7817015b-e119-4b02-954e-1b76445215b0"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "370a1749-6221-453b-a353-f6e3e0c11840"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=switchrole\"]",
+          "value": "",
+          "id": "f73e140f-bf04-447e-b930-719bea4a6a44"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=a[href*=\"route=AlertsController:setup\"]",
+          "value": "",
+          "id": "73626662-ab88-42d8-90ad-6e4f6adce112"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "d8a1a61f-6c43-4231-9254-225b2acf3810"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Role2\"]",
+          "value": "",
+          "id": "24741669-3ac0-4765-8378-766884aa8d04"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "693e76ae-83f6-4b5c-8a48-6bcd8294975d"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "css=a[href*=\"route=AlertsController:setup\"]",
+          "value": "",
+          "id": "0e3c8702-67b6-426f-8c7e-defa184e798d"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "36c99a14-3845-48e6-846c-6720d63bad54"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Role1\"]",
+          "value": "",
+          "id": "2f2980ff-29bc-40fe-9e45-2d3ee763e11c"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "e7c14d90-a5df-4622-a3b1-1f3230843bd8"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=a[href*=\"route=AlertsController:setup\"]",
+          "value": "",
+          "id": "f7d7f9a7-6879-478f-8f9d-b59ddb8aff43"
+        },
+        {
+          "command": "store",
+          "target": "admin",
+          "value": "username",
+          "id": "f1187b8e-9b86-45f4-b874-00f9c2952302"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "da864805-56f2-442d-b7ec-a0e6665e286d"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "0cf6dd8a-dac3-400c-8140-966dedd6db1e"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "2d347add-21c5-4af2-b20c-9f8bad15e6c9"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "313f593d-08f3-46b0-9a19-955d1a72254d"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "371ca17b-98d2-4fb1-a1c0-ca27ebabf7dc"
+        }
+      ]
+    },
+    {
+      "id": "9898245d-6243-4f70-a87c-beb3fbefbb29",
+      "name": "fn switchuser",
+      "commands": [
+        {
+          "id": "1f6314f4-5173-4846-817f-9d0d02db7c84",
+          "command": "executeScript",
+          "target": "$('#subheaderDiv2 span').remove();return $('#subheaderDiv2').text()",
+          "value": "_projtitle",
+          "comment": "Arguments: username (user to log in as)"
+        },
+        {
+          "command": "executeScript",
+          "target": "return $('a[href*=\"index.php?action=myprojects\"]').attr('href')",
+          "value": "_myprojects",
+          "id": "6ee8ccfa-1957-4d46-920b-db0c5764eaef"
+        },
+        {
+          "command": "executeScript",
+          "target": "return $('#username-reference').text()",
+          "value": "_oldusername",
+          "id": "5a74f00e-f56a-418c-be40-6244e8047305"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Log out as ${_oldusername}",
+          "value": "",
+          "id": "44339392-e11d-49b6-883e-5a534dd7b49a"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"logout=1\"]",
+          "value": "",
+          "id": "9fed3518-fd39-46c2-91f4-c3cb04a21af9"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=username",
+          "value": "30000",
+          "id": "f12adc73-4693-4551-9885-e74f02b5df44"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location = ${_myprojects}",
+          "value": "",
+          "id": "8e8cd593-4577-4e45-a63e-59d2e4febdaa"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "id=username",
+          "value": "",
+          "id": "0ed0ca23-50eb-434d-8f88-b62efa0df1d3"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "id=password",
+          "value": "",
+          "id": "4e4a45b7-9cf3-4ca6-bb8c-2f5d6c064fee"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#username').val(${username});$('#password').val('abc123')",
+          "value": "",
+          "id": "69af676e-f714-4e16-9ce7-3d78ff5f3584"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Log in as ${username}",
+          "value": "",
+          "id": "e3296d26-fb9a-4c90-b4d2-037c7df33fcc"
+        },
+        {
+          "command": "click",
+          "target": "id=login_btn",
+          "value": "",
+          "id": "9ca4fec1-8d85-43b9-b827-3bf6e2b0a1bb"
+        },
+        {
+          "command": "click",
+          "target": "linkText=${_projtitle}",
+          "value": "",
+          "id": "584b4c8f-ed6f-43ff-8035-ab36a5f5aabc"
+        }
+      ]
+    },
+    {
+      "id": "722d5481-1121-4554-ba74-0db727b547d1",
+      "name": "t03 - Assign custom DAGs",
+      "commands": [
+        {
+          "id": "38cf5b55-f253-422a-909f-79c2c1e14e6e",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "fc3f1029-cc6e-4b2d-beee-5cf8b5053c59"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id=\"table-proj_table\"][contains(.,'Role Switcher Test')]",
+          "value": "",
+          "id": "1f832d7d-b869-4abc-b35a-082897f04213"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Role Switcher Test",
+          "value": "",
+          "id": "e906f226-203d-41a2-93de-c07c37177f42"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "2a43e8da-dd5f-4f12-a006-f6e2d293e9fb"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "53e0c6d9-c61f-4727-9f55-8e95007b8236"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "d1aa4303-72a6-4b06-8899-009191380d2f"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "5fe8cde9-38df-44f3-b53b-5b5b0a3f7535"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "3f8bd12b-56e1-4bef-a463-5455a366c19a"
+        },
+        {
+          "command": "click",
+          "target": "css=a.roleswitcherdags[data-user=\"admin\"]",
+          "value": "",
+          "id": "fde8844b-e414-4278-9c96-2e3054bb2983"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//div[@aria-describedby][contains(.,'You must assign roles to the user')]",
+          "value": "",
+          "id": "c021a0b1-0f0c-4716-a1f9-7c2a0f90bc10"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//div[@aria-describedby][contains(.,'You must assign roles to the user')]//*[contains(@class,'ui-dialog-buttonset')]//button",
+          "value": "",
+          "id": "2c8a7924-5430-4895-8397-5f7fd79c99c8"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "5848f4a7-34ca-4740-baf2-a4573f187b52"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "fe5165eb-1162-4808-a47c-39c2cd0ddfe4"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "4528a15d-43ad-4a8f-a960-64acc8813da3"
+        },
+        {
+          "command": "click",
+          "target": "css=a.roleswitcherdags[data-user=\"admin\"]",
+          "value": "",
+          "id": "c54a5476-ceb0-4c50-8749-542dcbe55d50"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//div[@aria-describedby][contains(.,'You must assign roles to the user')]",
+          "value": "",
+          "id": "f6ec72d3-e1b7-48a9-b56e-c3921379e882"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=div[aria-describedby=\"dags-dialog\"]",
+          "value": "",
+          "id": "f68db8fb-3e6b-4a8e-99c3-89c516a4a537"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//label[contains(.,'Role1 - [No assignment]')]//input",
+          "value": "",
+          "id": "853f4a1b-8e9b-468e-ba84-2be9425e8125"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//label[contains(.,'Role2 - DAG1')]//input",
+          "value": "",
+          "id": "153d8c7c-5c19-4903-871a-81912ecc2d4c"
+        },
+        {
+          "command": "click",
+          "target": "css=div[aria-describedby=\"dags-dialog\"] div.ui-dialog-buttonset button",
+          "value": "",
+          "id": "9dc237f9-ddde-46ae-9ede-ad6c9389d251"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')][contains(.,'Custom')]",
+          "value": "30000",
+          "id": "8e7dd671-c15a-418c-8ffa-246e517146a0"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')]//td[contains(.,'Custom')]",
+          "value": "",
+          "id": "a9c625fc-49e1-4b1f-abd4-f09fd072983a"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:DAG assignments set",
+          "value": "",
+          "id": "ee273965-ca69-4d37-b02a-6370748670c6"
+        },
+        {
+          "command": "type",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')]//td[contains(.,'Custom')]",
+          "value": "SAVESCREENSHOT",
+          "id": "11189e89-9e3c-4cd7-81ce-831c5a572184"
+        },
+        {
+          "command": "runScript",
+          "target": "//SAVEDESC:Reload page.",
+          "value": "",
+          "id": "41f4a718-5c79-498e-a4d0-b3d96e31dd1c"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location.reload()",
+          "value": "",
+          "id": "e846af4c-0d45-42ef-bf12-ddb18613ae25"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Confirm custom DAG assignments saved",
+          "value": "",
+          "id": "1284b009-9a8a-4469-a856-7e170165dada"
+        },
+        {
+          "command": "type",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')]//td[contains(.,'Custom')]",
+          "value": "SAVESCREENSHOT",
+          "id": "7ad59dee-eed2-4168-a540-37cb59081e37"
+        },
+        {
+          "command": "click",
+          "target": "css=a.roleswitcherdags[data-user=\"admin\"]",
+          "value": "",
+          "id": "ddc2d1df-b640-4813-aac4-e8d53b606aba"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//div[@aria-describedby][contains(.,'You must assign roles to the user')]",
+          "value": "",
+          "id": "df44663d-7ae8-420f-a19e-d1bd43488974"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=div[aria-describedby=\"dags-dialog\"]",
+          "value": "",
+          "id": "df7f5521-62ef-4e2e-a0d2-ea0251175356"
+        },
+        {
+          "command": "assertChecked",
+          "target": "xpath=//label[contains(.,'Role1 - [No assignment]')]//input",
+          "value": "",
+          "id": "a3d1fb2f-ffcb-411b-81ba-211851218fe9"
+        },
+        {
+          "command": "assertChecked",
+          "target": "xpath=//label[contains(.,'Role2 - DAG1')]//input",
+          "value": "",
+          "id": "71bec3ed-9067-411c-b249-39cdd076ff0e"
+        },
+        {
+          "command": "uncheck",
+          "target": "xpath=//label[contains(.,'Role1 - [No assignment]')]//input",
+          "value": "",
+          "id": "6588091c-702a-4e83-b37b-d6e4e20044ec"
+        },
+        {
+          "command": "uncheck",
+          "target": "xpath=//label[contains(.,'Role2 - DAG1')]//input",
+          "value": "",
+          "id": "3d32fcc5-57e2-478d-ab36-509dec862d6f"
+        },
+        {
+          "command": "click",
+          "target": "css=div[aria-describedby=\"dags-dialog\"] div.ui-dialog-buttonset button",
+          "value": "",
+          "id": "683fbc84-5b04-4fca-a813-299e22c0d577"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')][contains(.,'Standard')]",
+          "value": "30000",
+          "id": "5972a5d5-d236-49b3-a979-9961e7445799"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')]//td[contains(.,'Standard')]",
+          "value": "",
+          "id": "0a782b7c-5e06-440d-8df0-cb3802d4ba8e"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:DAG assignments unset",
+          "value": "",
+          "id": "92993ae2-acfc-4974-b3ad-4d2cef742ab4"
+        },
+        {
+          "command": "type",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')]//td[contains(.,'Standard')]",
+          "value": "SAVESCREENSHOT",
+          "id": "76570702-340f-4179-8fb4-3c92e18a152b"
+        },
+        {
+          "command": "runScript",
+          "target": "//SAVEDESC:Reload page.",
+          "value": "",
+          "id": "d5f6f679-a315-4b5c-883b-304ce0f50e64"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location.reload()",
+          "value": "",
+          "id": "1bf151a2-8d63-4766-b7b9-0707429fe157"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Confirm custom DAG assignments removed",
+          "value": "",
+          "id": "79206ff1-9ed7-45db-a628-ae02178b6c17"
+        },
+        {
+          "command": "type",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'admin')]//td[contains(.,'Standard')]",
+          "value": "SAVESCREENSHOT",
+          "id": "46317201-ef56-4911-819d-fbc812774b92"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "9f73425d-6b80-4ba3-9848-7a4e39272248"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "d3d11594-78fb-4ce9-ac16-4aaa5d8ee29e"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "96421b9b-afb7-458d-be14-d059d26aa5f9"
+        }
+      ]
+    },
+    {
+      "id": "b0fa0d3b-c1ec-4e68-9753-91e07f43fd58",
+      "name": "t04 - Custom DAGs enacted",
+      "commands": [
+        {
+          "id": "4fdf56ff-06bd-4ef4-9d11-91bdbc953013",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "57585442-d767-4b97-aec4-7f3181fe2ec6"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id=\"table-proj_table\"][contains(.,'Role Switcher Test')]",
+          "value": "",
+          "id": "2627556f-0aef-4619-87dc-0579ff687ac4"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Role Switcher Test",
+          "value": "",
+          "id": "d3912df2-b4bc-448f-a52b-d88eca176a9c"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "ed242a1e-e493-453c-afb8-e452a8fe1d8b"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "a6261bdb-092f-4be6-8b97-cab0fd186c4a"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "05a58d1e-b53f-4261-986e-87521d661537"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "cd14c29c-6f32-4944-809b-13388ee0aace"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "0b6e4924-459d-410e-a140-6a86f82e0506"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "07eb6d90-80a4-46ff-9c32-f374e768a838"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "bd43bd3a-fc42-4af9-8593-6b42fba0df15"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "1cc6e7fc-d353-4c47-8420-45f6b12dc0f6"
+        },
+        {
+          "command": "click",
+          "target": "css=a.roleswitcherdags[data-user=\"user1\"]",
+          "value": "",
+          "id": "96e889e0-e3f0-429e-b5cb-c73d61e5d048"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//div[@aria-describedby][contains(.,'You must assign roles to the user')]",
+          "value": "",
+          "id": "2eabb4da-0554-4432-b9c0-246911d69095"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=div[aria-describedby=\"dags-dialog\"]",
+          "value": "",
+          "id": "7bd1cc74-aaf9-478f-9f1b-bc159fa65811"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//label[contains(.,'Role1 - [No assignment]')]//input",
+          "value": "",
+          "id": "b55115cc-c446-4b11-87e4-19237f8d1603"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//label[contains(.,'Role2 - DAG1')]//input",
+          "value": "",
+          "id": "232aed5b-0f78-4d42-a5d3-3a872ae879a7"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//label[contains(.,'Role2 - DAG2')]//input",
+          "value": "",
+          "id": "0b959753-ed5d-4197-8481-04bbab24141b"
+        },
+        {
+          "command": "click",
+          "target": "css=div[aria-describedby=\"dags-dialog\"] div.ui-dialog-buttonset button",
+          "value": "",
+          "id": "c0402f33-8775-45a1-b133-10177d9cfbf4"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'user1')][contains(.,'Custom')]",
+          "value": "30000",
+          "id": "43323294-e0da-46be-b206-07ce2998aab0"
+        },
+        {
+          "command": "store",
+          "target": "user1",
+          "value": "username",
+          "id": "9db8bc9e-d519-4b9e-ba53-4374704eb5d4"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "736f8d52-d588-47c3-b0ec-f61e59e9f357"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=switchrole\"]",
+          "value": "",
+          "id": "67c8728d-6e39-423a-baf8-a5e8ed363f54"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "id=dag-switcher-change-button",
+          "value": "",
+          "id": "f2a6bd90-609f-4a21-85ce-26bfb55361aa"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "b4a9659e-0619-41a7-821e-8e8de013bff9"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Role2\"]",
+          "value": "",
+          "id": "7cb4f583-a458-4702-9d99-753f3020b86f"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "ffbe7fc2-3ed4-43ae-a9ba-49f2c15da046"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "id=dag-switcher-change-button",
+          "value": "",
+          "id": "eef8b098-78b2-48f5-9a34-60a404409f4f"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "6d1d4ce1-434f-4fe3-875b-54c68a28d900"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Role1\"]",
+          "value": "",
+          "id": "1e76023e-b875-4178-b265-1581e49cfa6b"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "6f074994-7c39-479e-af16-4510e2abe813"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "id=dag-switcher-change-button",
+          "value": "",
+          "id": "288a6de0-5509-49a7-bea9-0060a8173ebe"
+        },
+        {
+          "command": "store",
+          "target": "admin",
+          "value": "username",
+          "id": "1841d43c-a949-4a17-a074-622b15f88dcd"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "59e711b0-9ea4-4c0b-bc7d-ae57bf0fc3a6"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "ec060790-3e0e-4d64-961e-5ed59fc652ab"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "7862df57-7f3e-4ec8-827f-47d9e6e8e22c"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "79890063-2ffa-43e9-93fc-1fd4780ba7c5"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "d0f237d7-e6f7-45ff-8d2a-6efa20a13bde"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//table[@class='roleswitchertbl']//tr[contains(.,'user1')][contains(.,'Standard')]",
+          "value": "30000",
+          "id": "a8ca7036-5358-4818-9be3-3fac12725480"
+        }
+      ]
+    },
+    {
+      "id": "fb975407-6889-4506-b901-27ed60dd5dd3",
+      "name": "t05 - Deactivate admin privs",
+      "commands": [
+        {
+          "id": "b561a601-4e3f-40c3-a486-d5e38af2e888",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "60ae87d2-5ac2-44f9-a96d-209d46a29950"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id=\"table-proj_table\"][contains(.,'Role Switcher Test')]",
+          "value": "",
+          "id": "8c3e5196-9ee7-4044-a564-009bdf71527c"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Role Switcher Test",
+          "value": "",
+          "id": "6bafe984-d5a8-4083-b612-9ca12674703c"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "d7197ce3-4bee-4aab-9df7-614c275c7ab5"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "7543bcf1-1241-4238-acd5-407517a38174"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "0e530ee9-19e8-4126-99b3-fdaf138c9fbe"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "83ceddd3-71af-4a94-bea8-77e11683c798"
+        },
+        {
+          "command": "assertNotChecked",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "872aed31-c779-4592-9d69-fe99d8694e58"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "3d6e2939-17ec-415e-b091-872b42a34300"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "6b773496-3da2-4af6-be30-e245eaf3fa77"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "f81a1695-2e6e-42ee-977a-90476e6b8d5e"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location.reload()",
+          "value": "",
+          "id": "8b0bcca7-d0aa-400f-b0d8-962b4ad0676b"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=switchrole\"]",
+          "value": "",
+          "id": "eff3bb4f-2e3d-42ca-9e02-e64e36691508"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=input[value=\"Deactivate access\"]",
+          "value": "",
+          "id": "c2b2e53d-f307-47d3-968f-d39a54850ef7"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=a[href*=\"Design/online_designer.php\"]",
+          "value": "",
+          "id": "fc860a96-ba6f-4d8d-9f6d-493eb3426919"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Deactivate access\"]",
+          "value": "",
+          "id": "65fa0696-c943-444b-b0d9-c60a0a81efa5"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "css=a[href*=\"Design/online_designer.php\"]",
+          "value": "",
+          "id": "1ac2e69d-8213-4c09-88ca-28a672d4b07d"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=a[href*=\"route=AlertsController:setup\"]",
+          "value": "",
+          "id": "fbe3b49b-2487-451c-9495-8f17fa7ad838"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "ae46991b-1adf-478a-aadf-f3c435d13d19"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Role2\"]",
+          "value": "",
+          "id": "8aa89dae-dd5b-4eb4-bc5b-607ac2450c1a"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "803cf1f8-8de4-4ac7-9a7f-2b5bc0b2ce36"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "css=a[href*=\"Design/online_designer.php\"]",
+          "value": "",
+          "id": "16944051-cf37-4b18-9a6a-0780f2675d64"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "css=a[href*=\"route=AlertsController:setup\"]",
+          "value": "",
+          "id": "81dee1f8-945e-4bbc-90de-ec8bc717b24c"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=input[value=\"Reactivate access\"]",
+          "value": "",
+          "id": "3caa568d-ace9-42a8-8afe-5e4e7943e3da"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "c58114f3-bf7d-491c-9db0-fd83648b6b66"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Reactivate access\"]",
+          "value": "",
+          "id": "1b890566-eafc-4405-b2e1-6bedc945ac4a"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "2980dbd9-ef9a-4220-a05c-0ade0e2e2c94"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=a[href*=\"Design/online_designer.php\"]",
+          "value": "",
+          "id": "9c93cf43-f0ce-481d-9f3a-1c8d3f8389ab"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=a[href*=\"route=AlertsController:setup\"]",
+          "value": "",
+          "id": "e22c99bb-bcc8-4684-898d-a63dc69d1dba"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "66f6eee8-d9be-4725-b73e-224db35e53da"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Role1\"]",
+          "value": "",
+          "id": "b8856f4e-1769-4964-8f9c-3c784231d999"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "fab1f6ba-5cfe-4f31-8d41-9584b5c5e4f2"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#south').remove()",
+          "value": "",
+          "id": "7cb999d7-d3a1-4802-be67-8e6ee40930d1"
+        },
+        {
+          "command": "click",
+          "target": "css=input[value=\"Deactivate access\"]",
+          "value": "",
+          "id": "2e8feb2d-cf7c-4c67-8e25-01b4fc07152f"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "5a9a6f1a-ac55-418a-b322-2467bebbae04"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ControlCenter/index.php\"]",
+          "value": "",
+          "id": "a060db19-2c08-4f11-a967-cdd1746290d5"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ControlCenter/superusers.php\"]",
+          "value": "",
+          "id": "9570241a-5531-4e16-b1d0-213140a875bb"
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "88fd4c40-6144-408d-b0b9-f746f392f366"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Role Switcher Test",
+          "value": "",
+          "id": "413e16da-4025-4083-b077-f568dd69450f"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=switchrole\"]",
+          "value": "",
+          "id": "a6a266b0-2b39-4c3d-a41c-4d8f457e4242"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "css=input[value=\"Deactivate access\"]",
+          "value": "",
+          "id": "17212a2c-d7f5-4477-98fb-369afc872e1e"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "b82e5e4a-c28a-451d-851b-397279484bd0"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"admin - Role1\"]",
+          "value": "",
+          "id": "b584d903-266f-4450-83f6-e5a33ca490c2"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"admin - Role2\"]",
+          "value": "",
+          "id": "ec9c23c1-db7b-453b-b55d-33664677b7c3"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "db3bcf24-f6a1-425d-b187-60c852eb629f"
+        },
+        {
+          "command": "check",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "9911d1e5-8762-4ca9-a11e-8c89c084727e"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "a05437bb-d7a1-42be-bc9e-41acbb2d465b"
+        },
+        {
+          "command": "store",
+          "target": "user1",
+          "value": "username",
+          "id": "d2dd9f23-9867-421d-83dd-ba0ff6b34eed"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "c3ca951a-d4a4-4208-a36b-3818db06b3d2"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=switchrole\"]",
+          "value": "",
+          "id": "e6d069be-33a5-4256-8949-b634f5f7cad9"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "css=input[value=\"Deactivate access\"]",
+          "value": "",
+          "id": "9146618a-87de-4ed2-8320-fac8e63b92b4"
+        },
+        {
+          "command": "store",
+          "target": "admin",
+          "value": "username",
+          "id": "056e4f74-1e07-42ae-9144-67329db446bb"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "daa2c86b-3040-4359-bb1d-04c66fd185b0"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=role_switcher\"][href*=\"page=configure\"]",
+          "value": "",
+          "id": "575c1ac8-47ee-4ece-aa77-4c35a98e3707"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role1\"]",
+          "value": "",
+          "id": "fb58059f-9d0b-4e62-ac51-81d1debb2dc2"
+        },
+        {
+          "command": "uncheck",
+          "target": "css=input[title=\"user1 - Role2\"]",
+          "value": "",
+          "id": "c41a6c9b-1c97-4b3a-b12d-8ded56ca407b"
+        },
+        {
+          "command": "pause",
+          "target": "2000",
+          "value": "",
+          "id": "0a75584f-db95-457f-a53b-55015b90f443"
+        }
+      ]
+    }
+  ],
+  "snapshot": {
+    "dependencies": {},
+    "tests": [],
+    "jest": {
+      "extraGlobals": []
+    }
+  }
+}
