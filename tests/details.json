@@ -5,7 +5,7 @@
 		"expected" : "The assigned roles are saved"
 	},
 	{
-		"file" : "test_02-Users_can_switch_roles",
+		"file" : "test_02-Users_can_switch_roles.py",
 		"name" : "Users can switch between their roles",
 		"expected" : "Selecting a different role correctly switches the assigned role"
 	},

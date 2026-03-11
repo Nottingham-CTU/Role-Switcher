@@ -26,7 +26,9 @@ class Test_fn_switchuser:
     self.driver.execute_script("window.location = arguments[0]", self.vars["_myprojects"])
     assert len(self.driver.find_elements(By.ID, "username")) > 0
     assert len(self.driver.find_elements(By.ID, "password")) > 0
+    time.sleep(1)
     self.driver.execute_script("$('#username').val(arguments[0]);$('#password').val('abc123')", self.vars["username"])
+    time.sleep(1)
     self.driver.execute_script("//SETDESC:Log in as arguments[0]", self.vars["username"])
     self.driver.find_element(By.ID, "login_btn").click()
     self.driver.find_element(By.LINK_TEXT, self.vars["_projtitle"]).click()

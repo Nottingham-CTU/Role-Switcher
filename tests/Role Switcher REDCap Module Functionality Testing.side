@@ -770,10 +770,22 @@
           "id": "4e4a45b7-9cf3-4ca6-bb8c-2f5d6c064fee"
         },
         {
+          "command": "pause",
+          "target": "1000",
+          "value": "",
+          "id": "0931551c-deda-472b-9b1d-4d6aaa242955"
+        },
+        {
           "command": "runScript",
           "target": "$('#username').val(${username});$('#password').val('abc123')",
           "value": "",
           "id": "69af676e-f714-4e16-9ce7-3d78ff5f3584"
+        },
+        {
+          "command": "pause",
+          "target": "1000",
+          "value": "",
+          "id": "c1d97320-fe67-48cb-9e21-0d62fc5e67e1"
         },
         {
           "command": "runScript",
