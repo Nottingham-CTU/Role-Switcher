@@ -22,9 +22,10 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 		return $this->getProjectId() === null ? true : null;
 	}
 
-	// If the REDCap UI Tweaker module is enabled, instruct the external modules simplified view to
-	// exclude the role assignments.
-	function redcap_every_page_before_render( $project_id )
+	// When viewing the set administrative privileges page, any admins who have deactivated their
+	// own admin privileges should have them reactivated before the page is loaded, so it accurately
+	// represents the system administrators.
+	function redcap_every_page_before_render( $project_id = null )
 	{
 
 		// IMPORTANT: This function runs in all contexts, when adding code ensure that it will only
@@ -44,12 +45,15 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 					              'WHERE username = ?', [ $deactivatedAdmin ] );
 				}
 				$this->removeSystemSetting('deactivated-admins');
-				header( 'Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+				$proto = ( $_SERVER['HTTP_HOST'] == '127.0.0.1' ? 'http://' : 'https://' );
+				header( 'Location: ' . $proto . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 				$this->exitAfterHook();
 				return;
 			}
 		}
 
+		// Inform the REDCap UI Tweaker module to exclude module settings from the simplified view.
+		// Note: This is deprecated in favour of the Project Documentation module.
 		if ( !$project_id || ! $this->isModuleEnabled('redcap_ui_tweaker') )
 		{
 			return;
@@ -89,6 +93,12 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 
 		// Otherwise allow access based on user rights permission.
 		return ( $userRights['user_rights'] == '1' );
+	}
+
+	// Get the module documentation data for the Project Documentation module.
+	function getModuleDocumentationData( $projectID )
+	{
+		return [ 'extmod' => [] ];
 	}
 
 	// Get the users that can switch role.
