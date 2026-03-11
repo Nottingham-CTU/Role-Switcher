@@ -55,6 +55,10 @@ require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
 
 ?>
+<script type="text/javascript">
+ $('head').append('<style type="text/css">.mod-roleswitch-vhide{border:0;height:1px;margin:-1px;' +
+                'overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}</style>')
+</script>
 <div class="projhdr"><i class="fas fa-user-gear"></i> User Role Assignments</div>
 <table class="roleswitchertbl">
  <thead>
@@ -108,10 +112,17 @@ foreach ( $listUsers as $infoUser )
 			$checked = ' checked';
 		}
 ?>
-   <td><input type="checkbox" class="roleswitcheropt" title="<?php
+   <td>
+    <label style="margin:0">
+     <input type="checkbox" class="roleswitcheropt" title="<?php
 		echo $module->escape( $infoUser['username'] . ' - ' . $roleName );
 ?>" data-user="<?php echo $module->escape( $infoUser['username'] );
-?>" data-role="<?php echo $module->escape( $roleID ); ?>"<?php echo $checked; ?>></td>
+?>" data-role="<?php echo $module->escape( $roleID ); ?>"<?php echo $checked; ?>>
+     <span class="mod-roleswitch-vhide">
+      <?php echo $module->escape( $infoUser['username'] . ' - ' . $roleName ), "\n"; ?>
+     </span>
+    </label>
+   </td>
 <?php
 	}
 ?>
@@ -158,7 +169,8 @@ $(function()
 {
   var vListRoleIDs = JSON.parse('<?php echo json_encode( $module->escape( array_keys( $listRoles ) ) ); ?>')
   var vListRoles = JSON.parse('<?php echo json_encode( $module->escape( $listRoles ) ); ?>')
-  var vListDAGs = JSON.parse('<?php echo json_encode( $module->escape( array_keys( $listDAGs ) ) ); ?>')
+  var vListDAGIDs = JSON.parse('<?php echo json_encode( $module->escape( array_keys( $listDAGs ) ) ); ?>')
+  var vListDAGs = JSON.parse('<?php echo json_encode( $module->escape( $listDAGs ) ); ?>')
   var vUserRoles = $('<div></div>').html('<?php echo $module->escape( $userRolesData ); ?>').text()
   vUserRoles = JSON.parse( vUserRoles )
   $('.roleswitcheropt').click(function()
@@ -220,20 +232,24 @@ $(function()
       }
       var vRoleDAGs = vUserRoles[ vUsername ][ vRoleID ]
       vTblData += '<tr><td style="white-space:nowrap">' + vListRoles[ vRoleID ] + '</td>'
-      vTblData += '<td><input type="checkbox"'
+      vTblData += '<td><label style="margin:0"><input type="checkbox"'
       if ( Array.isArray( vRoleDAGs ) && vRoleDAGs.includes( 'null' ) )
       {
         vTblData += ' checked'
       }
-      vTblData += ' data-role="' + vRoleID + '" data-dag="null"></td>'
-      vListDAGs.forEach( function( vDAGID )
+      vTblData += ' data-role="' + vRoleID + '" data-dag="null">' +
+                  '<span class="mod-roleswitch-vhide">' + vListRoles[ vRoleID ] +
+                  ' - [No assignment]</span></label></td>'
+      vListDAGIDs.forEach( function( vDAGID )
       {
-        vTblData += '<td><input type="checkbox"'
+        vTblData += '<td><label style="margin:0"><input type="checkbox"'
         if ( Array.isArray( vRoleDAGs ) && vRoleDAGs.includes( '' + vDAGID ) )
         {
           vTblData += ' checked'
         }
-        vTblData += ' data-role="' + vRoleID + '" data-dag="' + vDAGID + '"></td>'
+        vTblData += ' data-role="' + vRoleID + '" data-dag="' + vDAGID + '">' +
+                    '<span class="mod-roleswitch-vhide">' + vListRoles[ vRoleID ] + ' - ' +
+                    vListDAGs[ vDAGID ] + '</span></label></td>'
       })
       vTblData += '</tr>'
     })
