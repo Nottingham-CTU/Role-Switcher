@@ -12,6 +12,7 @@ $listUserRoles = $module->getRolesForUser( USERID );
 $currentRole = $module->getUser()->getRights()['role_id'];
 $isAdmin = $module->getUser()->isSuperUser();
 $isDeactivated = false;
+$proto = ( $_SERVER['HTTP_HOST'] == '127.0.0.1' ? 'http://' : 'https://' );
 if ( ! $isAdmin )
 {
 	$listDeactivatedAdmins =
@@ -38,7 +39,7 @@ if ( $isAdmin && isset( $_POST['toggle-admin'] ) )
 		$listDeactivatedAdmins[] = USERID;
 	}
 	$module->setSystemSetting( 'deactivated-admins', json_encode( $listDeactivatedAdmins ) );
-	header( 'Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+	header( 'Location: ' . $proto . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 	exit;
 }
 if ( isset( $_POST['set-role'] ) )
@@ -48,7 +49,7 @@ if ( isset( $_POST['set-role'] ) )
 		$module->getProject()->setRoleForUser( $listUserRoles[ $_POST['set-role'] ], USERID );
 		$module->setUserDAGs( USERID, $_POST['set-role'] );
 	}
-	header( 'Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+	header( 'Location: ' . $proto . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 	exit;
 }
 
@@ -66,7 +67,7 @@ if ( $isAdmin )
 {
 ?>
 <div class="yellow" style="max-width:900px">
- <img src="/redcap_v15.5.8/Resources/images/exclamation_orange.png">
+ <img src="<?php echo APP_PATH_WEBROOT; ?>/Resources/images/exclamation_orange.png">
  <b>You are a REDCap Administrator, with access to all data.</b>&nbsp;
  <form method="post" style="display:inline;font-size:0.85em">
   <input type="hidden" name="toggle-admin" value="1">
