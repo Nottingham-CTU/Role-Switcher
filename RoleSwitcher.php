@@ -95,6 +95,12 @@ class RoleSwitcher extends \ExternalModules\AbstractExternalModule
 		return ( $userRights['user_rights'] == '1' );
 	}
 
+	// Export the project settings from this module (for e.g. Project Deployment).
+	function exportProjectSettings( $projectID )
+	{
+		return [];
+	}
+
 	// Get the module documentation data for the Project Documentation module.
 	function getModuleDocumentationData( $projectID )
 	{
