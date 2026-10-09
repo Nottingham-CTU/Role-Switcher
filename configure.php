@@ -93,9 +93,12 @@ require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 ?>
 <script type="text/javascript">
  $('head').append('<style type="text/css">.mod-roleswitch-vhide{border:0;height:1px;margin:-1px;' +
-                'overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}</style>')
+                  'overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px} ' +
+                  'body:has(.assignonly:checked) .roleswitchertbl tbody ' +
+                  'tr:not(:has(input:checked)) {display:none}</style>')
 </script>
 <div class="projhdr"><i class="fas fa-user-gear"></i> User Role Assignments</div>
+<label><input class="assignonly" type="checkbox"> Show only users with assignments</label>
 <table class="roleswitchertbl">
  <thead>
   <tr><th style="background:#fff;border:none" colspan="<?php
