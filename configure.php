@@ -50,6 +50,42 @@ if ( ! is_array( $listDAGs ) )
 }
 
 
+// Verify validity of user roles data.
+foreach ( $listUserRoles as $username => $infoUserRoles )
+{
+	if ( ! in_array( $username, array_keys( $listUsers ) ) )
+	{
+		unset( $listUserRoles[ $username ] );
+		continue;
+	}
+	foreach ( $infoUserRoles as $userrole => $listUserDAGs )
+	{
+		if ( ! in_array( $userrole, array_keys( $listRoles ) ) )
+		{
+			unset( $listUserRoles[ $username ][ $userrole ] );
+			continue;
+		}
+		if ( $listUserDAGs !== true )
+		{
+			foreach ( $listUserDAGs as $i => $userDAG )
+			{
+				if ( $userDAG != 'null' && ! in_array( $userDAG, array_keys( $listDAGs ) ) )
+				{
+					unset( $listUserRoles[ $username ][ $userrole ][ $i ] );
+				}
+			}
+			$listUserRoles[ $username ][ $userrole ] =
+				array_values( $listUserRoles[ $username ][ $userrole ] );
+			if ( empty( $listUserRoles[ $username ][ $userrole ] ) )
+			{
+				unset( $listUserRoles[ $username ] );
+				continue 2;
+			}
+		}
+	}
+}
+
+
 // Display the project header
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
