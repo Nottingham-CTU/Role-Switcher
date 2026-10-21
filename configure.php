@@ -50,6 +50,42 @@ if ( ! is_array( $listDAGs ) )
 }
 
 
+// Verify validity of user roles data.
+foreach ( $listUserRoles as $username => $infoUserRoles )
+{
+	if ( ! in_array( $username, array_keys( $listUsers ) ) )
+	{
+		unset( $listUserRoles[ $username ] );
+		continue;
+	}
+	foreach ( $infoUserRoles as $userrole => $listUserDAGs )
+	{
+		if ( ! in_array( $userrole, array_keys( $listRoles ) ) )
+		{
+			unset( $listUserRoles[ $username ][ $userrole ] );
+			continue;
+		}
+		if ( $listUserDAGs !== true )
+		{
+			foreach ( $listUserDAGs as $i => $userDAG )
+			{
+				if ( $userDAG != 'null' && ! in_array( $userDAG, array_keys( $listDAGs ) ) )
+				{
+					unset( $listUserRoles[ $username ][ $userrole ][ $i ] );
+				}
+			}
+			$listUserRoles[ $username ][ $userrole ] =
+				array_values( $listUserRoles[ $username ][ $userrole ] );
+			if ( empty( $listUserRoles[ $username ][ $userrole ] ) )
+			{
+				unset( $listUserRoles[ $username ] );
+				continue 2;
+			}
+		}
+	}
+}
+
+
 // Display the project header
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
@@ -57,9 +93,12 @@ require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 ?>
 <script type="text/javascript">
  $('head').append('<style type="text/css">.mod-roleswitch-vhide{border:0;height:1px;margin:-1px;' +
-                'overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}</style>')
+                  'overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px} ' +
+                  'body:has(.assignonly:checked) .roleswitchertbl tbody ' +
+                  'tr:not(:has(input:checked)) {display:none}</style>')
 </script>
 <div class="projhdr"><i class="fas fa-user-gear"></i> User Role Assignments</div>
+<label><input class="assignonly" type="checkbox"> Show only users with assignments</label>
 <table class="roleswitchertbl">
  <thead>
   <tr><th style="background:#fff;border:none" colspan="<?php
